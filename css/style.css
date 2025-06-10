@@ -39,6 +39,7 @@ nav ul {
     justify-content: center;
     margin: 10px auto 0 auto;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     width: 60%;
 }
 
