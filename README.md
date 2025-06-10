@@ -1,4 +1,4 @@
-# Myeongjun Kim Portfolio
+# Myeongjun Kim | CLOUD
 
 This repository hosts my personal portfolio site built with GitHub Pages.
 
