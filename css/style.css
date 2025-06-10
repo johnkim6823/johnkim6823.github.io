@@ -77,12 +77,14 @@ section {
     padding-left: 20px;
 }
 
+
 .education-entry li {
     margin-bottom: 4px;
+    white-space: nowrap;
 }
 
 .edu-basic {
-    width: 220px;
+    min-width: 260px;
 }
 
 .education-entry h3 {
