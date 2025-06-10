@@ -22,7 +22,7 @@ header h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 70%;
+    width: 60%;
     margin: auto;
 }
 
@@ -38,8 +38,8 @@ nav ul {
     display: flex;
     justify-content: center;
     margin: 10px auto 0 auto;
-    flex-wrap: nowrap; /* keep tabs on one line */
-    width: 70%;
+    flex-wrap: wrap;
+    width: 60%;
 }
 
 nav li {
@@ -55,7 +55,7 @@ nav a {
 /* General section styling */
 section {
     padding: 20px;
-    width: 70%;
+    width: 60%;
     margin: auto;
 }
 
@@ -130,7 +130,8 @@ section {
 
 /* Footer styling */
 footer {
-    background: #f4f4f4;
+    background: #ccc;
+    color: #000;
     text-align: center;
     padding: 10px 0;
     width: 100%;
