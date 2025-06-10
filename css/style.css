@@ -3,13 +3,13 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-}
+} /* #여기에 입력: 기본 폰트 설정 */
 
 header {
     background: #333;
     color: #fff;
     padding: 20px 0;
-}
+} /* #여기에 입력: 헤더 스타일 */
 
 header h1 {
     margin: 0;
@@ -40,15 +40,33 @@ section {
     margin: auto;
 }
 
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .profile-pic {
     width: 150px;
     height: 150px;
-    display: block;
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    margin-right: 20px;
+}
+
+.project {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 15px;
+} /* #여기에 입력: 프로젝트 레이아웃 */
+
+.project h3 {
+    width: 200px;
+    margin: 0;
 }
 
 footer {
     background: #f4f4f4;
     text-align: center;
     padding: 10px 0;
-}
+} /* #여기에 입력: 푸터 스타일 */
