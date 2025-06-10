@@ -6,8 +6,8 @@ body {
 } /* #여기에 입력: 기본 폰트 설정 */
 
 header {
-    background: #333;
-    color: #fff;
+    background: #fff;
+    color: #000;
     padding: 20px 0;
 } /* #여기에 입력: 헤더 스타일 */
 
@@ -39,7 +39,7 @@ nav li {
 }
 
 nav a {
-    color: #fff;
+    color: #333;
     text-decoration: none;
 }
 
@@ -95,11 +95,12 @@ section {
 .section-divider {
     border: none;
     border-top: 1px dashed #ccc;
-    margin: 10px 0;
+    margin: 8px auto;
+    width: 60%;
 }
 
 .edu-basic {
-    min-width: 260px;
+    min-width: 200px;
 }
 
 .education-entry h3 {
