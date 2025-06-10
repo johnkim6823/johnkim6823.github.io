@@ -36,10 +36,9 @@ nav ul {
     list-style: none;
     padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     margin: 10px auto 0 auto;
     flex-wrap: wrap;
-    justify-content: space-evenly;
     width: 60%;
 }
 
