@@ -1,40 +1,45 @@
+/* Base font and spacing setup */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-} /* #여기에 입력: 기본 폰트 설정 */
+}
 
+/* Header styling */
 header {
     background: #000;
     color: #fff;
     padding: 20px 0;
-} /* #여기에 입력: 헤더 스타일 */
+}
 
 header h1 {
     margin: 0;
 }
 
+/* Container for name and contact */
 .header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 800px;
+    width: 70%;
     margin: auto;
 }
 
+/* Contact block */
 .contact {
-    text-align: right;
+    text-align: left;
 }
 
+/* Navigation tabs */
 nav ul {
     list-style: none;
     padding: 0;
     display: flex;
     justify-content: center;
     margin: 10px auto 0 auto;
-    flex-wrap: wrap;
-    max-width: 800px;
+    flex-wrap: nowrap; /* keep tabs on one line */
+    width: 70%;
 }
 
 nav li {
@@ -47,18 +52,21 @@ nav a {
     font-weight: bold;
 }
 
+/* General section styling */
 section {
     padding: 20px;
-    max-width: 800px;
+    width: 70%;
     margin: auto;
 }
 
+/* Layout for about section */
 .about-content {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
+/* Profile picture size */
 .profile-pic {
     width: 150px;
     height: 150px;
@@ -66,36 +74,43 @@ section {
     margin-right: 20px;
 }
 
+/* Project layout */
 .project {
     display: flex;
     gap: 20px;
     align-items: flex-start;
     margin-bottom: 15px;
-} /* #여기에 입력: 프로젝트 레이아웃 */
+}
 
+/* Width for project titles */
 .project h3 {
     width: 200px;
     margin: 0;
 }
 
+/* Education entry layout */
 .education-entry {
     display: flex;
     gap: 20px;
     align-items: flex-start;
-    margin-bottom: 15px;
+    margin-bottom: 30px; /* space between education entries */
 }
 
+/* Remove default spacing inside education entries */
 .education-entry p,
 .education-entry li {
     margin: 0 0 4px 0;
+    padding: 0;
     white-space: nowrap;
 }
 
+/* Indent for details list */
 .edu-detail ul {
     margin: 0;
     padding-left: 20px;
 }
 
+/* Divider between sections */
 .section-divider {
     border: none;
     border-top: 1px dashed #ccc;
@@ -103,16 +118,21 @@ section {
     width: 100%;
 }
 
+/* Minimum width for basic education info */
 .edu-basic {
     min-width: 200px;
 }
 
+/* Spacing for education titles */
 .education-entry h3 {
     margin: 0 0 3px 0;
 }
 
+/* Footer styling */
 footer {
     background: #f4f4f4;
     text-align: center;
     padding: 10px 0;
-} /* #여기에 입력: 푸터 스타일 */
+    width: 70%;
+    margin: auto;
+}
