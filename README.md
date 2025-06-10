@@ -1,4 +1,4 @@
-# John Kim Portfolio
+# Myeongjun Kim Portfolio
 
 This repository hosts my personal portfolio site built with GitHub Pages.
 
