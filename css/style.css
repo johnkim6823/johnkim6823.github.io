@@ -22,6 +22,7 @@ nav ul {
     display: flex;
     justify-content: center;
     margin: 10px 0 0 0;
+    flex-wrap: wrap;
 }
 
 nav li {
@@ -35,6 +36,15 @@ nav a {
 
 section {
     padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin-bottom: 10px;
 }
 
 footer {
