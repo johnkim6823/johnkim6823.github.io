@@ -161,6 +161,7 @@ footer {
 .award-year small {
     font-size: 0.9em;
     display: block;
+    padding-top: 4px;
 }
 
 .award-desc {
