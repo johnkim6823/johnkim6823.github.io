@@ -6,8 +6,41 @@ const awards = [
   { year: 2021, date: '2021.3', desc: 'detail', org: 'detail' },
   { year: 2020, date: '2020.3', desc: 'detail', org: 'detail' },
   { year: 2018, date: '2018.3', desc: 'detail', org: 'detail' },
-  { year: 2017, date: '2017.3', desc: '1번', org: 'Baekseok University' }
+  { year: 2017, date: '2017.3', desc: '1번', org: 'Baekseok University' },
+  { year: 2016, date: '2016.3', desc: '2번', org: 'Baekseok University' },
+  { year: 2015, date: '2015.3', desc: '3번', org: 'Baekseok University' }
 ];
+
+const aboutInfo = [
+  'Information coming soon...'
+];
+
+const projects = [
+  { title: 'Project 1', desc: 'Details coming soon...' }
+];
+
+function About({ info }) {
+  return (
+    <>
+      {info.map((t, i) => (
+        <p key={i}>{t}</p>
+      ))}
+    </>
+  );
+}
+
+function ProjectsList({ projects }) {
+  return (
+    <>
+      {projects.map((p, i) => (
+        <div className="project" key={i}>
+          <h3>{p.title}</h3>
+          <p>{p.desc}</p>
+        </div>
+      ))}
+    </>
+  );
+}
 
 function AwardsList({ awards }) {
   return (
@@ -22,6 +55,16 @@ function AwardsList({ awards }) {
     </>
   );
 }
+
+ReactDOM.render(
+  <About info={aboutInfo} />, 
+  document.getElementById('about-root')
+);
+
+ReactDOM.render(
+  <ProjectsList projects={projects} />, 
+  document.getElementById('projects-root')
+);
 
 ReactDOM.render(
   <AwardsList awards={awards} />,
