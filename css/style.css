@@ -1,11 +1,3 @@
-네, 알겠습니다. '2023.11'과 같은 날짜 부분의 `bold` 속성을 제거하여 일반 텍스트 두께로 표시되도록 수정하겠습니다.
-
-이전 CSS 코드에서 `award-date` 클래스에 `font-weight`가 `bold`로 설정되어 있었던 것 같습니다. 이 부분을 `normal`로 변경하여 문제를 해결했습니다.
-
-아래는 수정된 `css/style.css` 파일의 전체 코드입니다.
-
-### **css/style.css**
-```css
 /* Base font and spacing setup */
 body {
     font-family: Arial, sans-serif;
@@ -216,4 +208,3 @@ footer {
     font-size: 0.9em;
     text-align: right; 
 }
-```
