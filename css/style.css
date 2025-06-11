@@ -147,24 +147,24 @@ footer {
 /* Awards layout */
 .award-entry {
     display: flex;
-    gap: 40px;
-    justify-content: sapce-between;
-    margin-bottom: 15px;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 .award-year {
     width: 20%;
     font-weight: bold;
-    font-size: 1.2em;
 }
 
-.award-date {
-    width: 50%
-    font-size: 1em;
+.award-year small {
+    font-size: 0.8em;
+    display: block;
 }
 
-.award-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.award-desc {
+    width: 50%;
+}
+
+.award-org {
+    width: 30%;
 }
