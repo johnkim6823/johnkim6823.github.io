@@ -148,7 +148,7 @@ footer {
 .award-entry {
     display: flex;
     gap: 40px;
-    align-items: center;
+    justify-content: sapce-between;
     margin-bottom: 15px;
 }
 
@@ -159,6 +159,7 @@ footer {
 }
 
 .award-date {
+    width: 50%
     font-size: 1em;
 }
 
