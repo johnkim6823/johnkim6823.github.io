@@ -7,8 +7,8 @@ const awards = [
   { year: 2020, date: '2020.3', desc: 'detail', org: 'detail' },
   { year: 2018, date: '2018.3', desc: 'detail', org: 'detail' },
   { year: 2017, date: '2017.3', desc: '1번', org: 'Baekseok University' },
-  { year: 2016, date: '2016.3', desc: '2번', org: 'Baekseok University' },
-  { year: 2015, date: '2015.3', desc: '3번', org: 'Baekseok University' }
+  { year: 2017, date: '2017.3', desc: '2번', org: 'Baekseok University' },
+  { year: 2017, date: '2017.9', desc: '3번', org: 'Baekseok University' }
 ];
 
 const aboutInfo = [
