@@ -55,7 +55,6 @@ header h1 {
     filter: invert(1); 
 }
 
-
 /* Navigation bar styling */
 nav {
     background: #000; 
@@ -96,43 +95,6 @@ section[id] {
     scroll-margin-top: 120px; 
 }
 
-
-/* Layout for about section */
-.about-content {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-/* Profile picture size */
-.profile-pic {
-    width: 200px;
-    height: 230px;
-    object-fit: cover;
-    margin-bottom: 0;
-    margin-right: 20px;
-}
-
-/* Project layout */
-.project {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    margin-bottom: 15px;
-}
-
-/* Width for project titles */
-.project h3 {
-    width: 200px;
-    margin: 0;
-}
-
-/* Publications list styling */
-.pub-list {
-    margin: 0;
-    padding-left: 20px;
-}
-
 /* Divider between sections */
 .section-divider {
     border: none;
@@ -141,40 +103,44 @@ section[id] {
     width: 100%;
 }
 
-
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .header-top,
-    nav ul,
-    section {
-        width: 95%;
-    }
-    .about-content,
-    .project,
-    .education-entry,
-    .award-entry {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .award-date,
-    .award-desc,
-    .award-org,
-    .project h3,
-    .skill-item-title {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-    .contact {
-        gap: 10px;
-    }
-    .contact img {
-        height: 20px;
-        width: 20px;
-    }
+/**************** About Me ****************/
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-/**************** Award styling ****************/
+.profile-pic {
+    width: 200px;
+    height: 230px;
+    object-fit: cover;
+    margin-bottom: 0;
+    margin-right: 20px;
+}
+
+/**************** Projects ****************/
+.project {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.project h3 {
+    width: 200px;
+    margin: 0;
+}
+
+/**************** Publications ****************/
+.pub-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/**************** Experiences ****************/
+/* No specific styles for this section yet */
+
+/**************** Awards ****************/
 .award-entry {
     display: flex;
     justify-content: space-between;
@@ -210,9 +176,8 @@ section[id] {
     width: 25%;
     text-align: right; 
 }
-/********************************/
 
-/**************** Techniques section styling ****************/
+/**************** Techniques ****************/
 .skills-category {
     margin-bottom: 30px;
 }
@@ -228,7 +193,7 @@ section[id] {
 .skill-item {
     display: flex;
     align-items: baseline;
-    margin-bottom: 5px; /* 항목 간 상하 간격을 5px로 수정 */
+    margin-bottom: 5px;
 }
 
 .skill-item-title {
@@ -237,8 +202,8 @@ section[id] {
     font-size: 1.0em;
     font-weight: bold;
     color: #333;
-    margin: 0; /* 제목의 기본 여백 제거 */
-    padding-right: 10px; /* 제목과 태그 사이의 간격 */
+    margin: 0;
+    padding-right: 10px;
 }
 
 .skills-list {
@@ -255,19 +220,8 @@ section[id] {
     font-size: 0.9em;
     font-weight: 500;
 }
-/********************************/
 
-/**************** Education section styling ****************/
-.edu-basic {
-    min-width: 200px;
-}
-
-/* Spacing for education titles */
-.education-entry h3 {
-    margin: 0 0 3px 0;
-}
-
-/* Education entry layout */
+/**************** Education ****************/
 .education-entry {
     display: flex;
     gap: 20px;
@@ -275,7 +229,10 @@ section[id] {
     margin-bottom: 30px; 
 }
 
-/* Remove default spacing inside education entries */
+.education-entry h3 {
+    margin: 0 0 3px 0;
+}
+
 .education-entry p,
 .education-entry li {
     margin: 0 0 1px 0;
@@ -283,13 +240,16 @@ section[id] {
     white-space: nowrap;
 }
 
-/* Indent for details list */
+.edu-basic {
+    min-width: 200px;
+}
+
 .edu-detail ul {
     margin: 0;
     padding-left: 20px;
 }
 
-/* Footer styling */
+/**************** Footer & Responsive ****************/
 footer {
     background: #ccc;
     color: #000;
@@ -299,4 +259,33 @@ footer {
     height: 50px;
     margin: auto;
 }
-/********************************/
+
+@media (max-width: 768px) {
+    .header-top,
+    nav ul,
+    section {
+        width: 95%;
+    }
+    .about-content,
+    .project,
+    .education-entry,
+    .award-entry {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .award-date,
+    .award-desc,
+    .award-org,
+    .project h3,
+    .skill-item-title {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .contact {
+        gap: 10px;
+    }
+    .contact img {
+        height: 20px;
+        width: 20px;
+    }
+}
