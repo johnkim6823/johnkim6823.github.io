@@ -163,7 +163,7 @@ section[id] {
     width: 100%;
 }
 
-<<<<<<< HEAD
+/* Default style for details (bulleted list) */
 .exp-detail ul {
     margin: 0;
     padding-left: 20px;
@@ -174,39 +174,29 @@ section[id] {
     margin-bottom: 5px;
 }
 
-=======
-.exp-item {
+/* Special 2-column style for TA entry */
+.exp-detail.as-columns {
+    list-style: none;
+    padding-left: 0;
+}
+
+.exp-detail.as-columns .exp-item {
     display: flex;
     margin-bottom: 5px;
     align-items: baseline;
 }
 
-.exp-period {
+.exp-detail.as-columns .exp-desc {
+    width: 75%;
+}
+
+.exp-detail.as-columns .exp-period {
     width: 25%;
     font-weight: 500;
     color: #333;
     text-align: right;
 }
 
-.exp-desc {
-    width: 75%;
-}
-
-.with-bullets .exp-desc {
-    position: relative;
-    padding-left: 15px;
-}
-
-.with-bullets .exp-desc::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    top: 1px;
-    color: #333;
-}
-
-
->>>>>>> parent of fd125e5... experiences updated
 /**************** Awards ****************/
 .award-entry {
     display: flex;
