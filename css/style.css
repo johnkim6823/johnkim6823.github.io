@@ -257,20 +257,19 @@ footer {
 }
 
 .skills-category h3 {
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* 제목과 첫 항목 사이 간격 축소 */
     font-size: 1.2em;
-    /* border-bottom 속성 제거 */
     padding-bottom: 0;
 }
 
 .skill-item {
     display: flex;
     align-items: baseline;
-    margin-bottom: 5px; /* 내부 아이템 간의 간격 축소 */
+    margin-bottom: 8px; /* 내부 아이템 간의 간격 소폭 조정 */
 }
 
 .skill-item-title {
-    width: 180px;
+    width: 160px; /* 너비 축소 */
     flex-shrink: 0;
     font-size: 1.0em;
     font-weight: bold;
