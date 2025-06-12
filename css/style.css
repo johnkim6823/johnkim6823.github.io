@@ -188,6 +188,17 @@ section[id] {
 
 .exp-detail.as-columns .exp-desc {
     width: 75%;
+    position: relative;
+    padding-left: 15px; /* 글머리 기호를 위한 공간 확보 */
+}
+
+/* TA 항목에만 글머리 기호를 추가합니다. */
+.exp-detail.as-columns .exp-desc::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #333;
 }
 
 .exp-detail.as-columns .exp-period {
@@ -196,6 +207,7 @@ section[id] {
     color: #333;
     text-align: right;
 }
+
 
 /**************** Awards ****************/
 .award-entry {
