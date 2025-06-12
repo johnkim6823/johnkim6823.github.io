@@ -257,7 +257,7 @@ footer {
 }
 
 .skills-category h3 {
-    margin-bottom: 15px; /* 제목과 첫 항목 사이 간격 축소 */
+    margin-bottom: 15px;
     font-size: 1.2em;
     padding-bottom: 0;
 }
@@ -268,11 +268,13 @@ footer {
 }
 
 .skill-item-title {
-    width: 200px; /* 너비 축소 */
+    width: 200px; 
     flex-shrink: 0;
     font-size: 1.0em;
     font-weight: bold;
     color: #333;
+    margin: 0; /* 제목의 기본 여백 제거 */
+    padding-right: 10px; /* 제목과 태그 사이의 간격 */
 }
 
 .skills-list {
