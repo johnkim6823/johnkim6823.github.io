@@ -146,7 +146,7 @@ section[id] {
 }
 
 .exp-basic {
-    min-width: 200px;
+    width: 200px;
     flex-shrink: 0;
 }
 
@@ -156,6 +156,7 @@ section[id] {
 
 .exp-basic p {
     margin: 0;
+    word-wrap: break-word;
 }
 
 .exp-detail {
@@ -173,23 +174,25 @@ section[id] {
     font-weight: 500;
     color: #333;
     text-align: right;
-    padding-right: 15px; /* 설명과의 간격을 위해 패딩 추가 */
 }
 
 .exp-desc {
     width: 75%;
-    position: relative;
-    padding-left: 15px; /* 글머리 기호를 위한 공간 확보 */
 }
 
-/* 아래 ::before 선택자를 추가하여 글머리 기호를 생성합니다. */
-.exp-desc::before {
+.with-bullets .exp-desc {
+    position: relative;
+    padding-left: 15px;
+}
+
+.with-bullets .exp-desc::before {
     content: '•';
     position: absolute;
     left: 0;
-    top: 0;
+    top: 1px;
     color: #333;
 }
+
 
 /**************** Awards ****************/
 .award-entry {
