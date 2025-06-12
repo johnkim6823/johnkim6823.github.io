@@ -265,11 +265,10 @@ footer {
 .skill-item {
     display: flex;
     align-items: baseline;
-    margin-bottom: 8px; /* 내부 아이템 간의 간격 소폭 조정 */
 }
 
 .skill-item-title {
-    width: 300px; /* 너비 축소 */
+    width: 250px; /* 너비 축소 */
     flex-shrink: 0;
     font-size: 1.0em;
     font-weight: bold;
