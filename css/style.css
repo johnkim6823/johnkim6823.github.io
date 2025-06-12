@@ -11,10 +11,10 @@ header {
     background: #000;
     color: #fff;
     padding-bottom: 0; 
-    position: -webkit-sticky; /* Safari 브라우저 호환성 */
-    position: sticky; /* 스크롤 시 상단에 고정 */
+    position: -webkit-sticky;
+    position: sticky;
     top: 0;
-    z-index: 1000; /* 다른 요소들 위에 표시되도록 z-index 설정 */
+    z-index: 1000;
 }
 
 header h1 {
@@ -24,9 +24,9 @@ header h1 {
 
 /* Container for name and contact */
 .header-top {
-    display: flex; /* 이름과 연락처 아이콘을 가로로 나란히 배치 */
-    justify-content: space-between; /* 양쪽 끝으로 정렬 */
-    align-items: center; /* 세로 중앙 정렬 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 90%;
     max-width: 1000px;
     margin: auto;
@@ -36,23 +36,23 @@ header h1 {
 .contact {
     display: flex;
     align-items: center;
-    gap: 15px; /* 아이콘 사이의 간격 */
+    gap: 15px; 
 }
 
 .contact a {
     display: inline-block;
-    transition: opacity 0.2s; /* 부드러운 효과 */
+    transition: opacity 0.2s; 
 }
 
 .contact a:hover {
-    opacity: 0.7; /* 마우스를 올렸을 때 약간 투명하게 */
+    opacity: 0.7; 
 }
 
 .contact img {
     height: 24px; 
     width: 24px; 
     vertical-align: middle;
-    filter: invert(1); /* 아이콘 색상을 반전시켜 흰색으로 만듦 */
+    filter: invert(1); 
 }
 
 /* Navigation bar styling */
@@ -67,7 +67,7 @@ nav ul {
     display: flex;
     justify-content: space-between;
     margin: auto;
-    flex-wrap: wrap; /* 화면이 좁아지면 줄바꿈 */
+    flex-wrap: wrap;
     width: 90%;
     max-width: 1000px;
 }
@@ -91,7 +91,6 @@ section {
 }
 
 /* Scroll-to-anchor offset */
-/* 내비게이션 클릭 시, 고정된 헤더에 가려지지 않도록 상단 여백을 줌 */
 section[id] {
     scroll-margin-top: 120px; 
 }
@@ -104,6 +103,20 @@ section[id] {
     width: 100%;
 }
 
+/* Utility class for subtle text */
+.sub-text {
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+a.sub-text {
+    text-decoration: none;
+}
+
+a.sub-text:hover {
+    text-decoration: underline;
+}
+
 /**************** About Me ****************/
 .about-content {
     display: flex;
@@ -114,24 +127,14 @@ section[id] {
 .profile-pic {
     width: 200px;
     height: 230px;
-    object-fit: cover; /* 이미지 비율을 유지하며 공간을 채움 */
+    object-fit: cover;
     margin-bottom: 0;
     margin-right: 20px;
 }
 
 /**************** Projects ****************/
-/* Projects 섹션은 Experiences와 같은 스타일을 재사용합니다. */
-.project {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    margin-bottom: 15px;
-}
+/* This section uses the .experience-entry styles */
 
-.project h3 {
-    width: 200px;
-    margin: 0;
-}
 
 /**************** Publications ****************/
 .pub-list {
@@ -139,7 +142,6 @@ section[id] {
     padding-left: 20px;
 }
 
-/* 수상 논문을 표시하는 태그 스타일 */
 .award-indicator {
     margin-left: 8px;
     font-size: 0.9em;
@@ -148,7 +150,6 @@ section[id] {
 }
 
 /**************** Experiences ****************/
-/* 각 경력 항목의 전체 컨테이너 */
 .experience-entry {
     display: flex;
     gap: 20px;
@@ -156,10 +157,9 @@ section[id] {
     margin-bottom: 30px;
 }
 
-/* 왼쪽의 제목/기간 영역 */
 .exp-basic {
     width: 200px;
-    flex-shrink: 0; /* 화면이 줄어도 너비가 줄어들지 않음 */
+    flex-shrink: 0;
 }
 
 .exp-basic h3 {
@@ -168,15 +168,14 @@ section[id] {
 
 .exp-basic p {
     margin: 0;
-    word-wrap: break-word; /* 긴 단어가 영역을 벗어나지 않도록 줄바꿈 */
+    word-wrap: break-word;
 }
 
-/* 오른쪽의 상세 설명 영역 */
 .exp-detail {
     width: 100%;
 }
 
-/* 기본 상세 설명 스타일 (글머리 기호 리스트) */
+/* Default style for details (bulleted list) */
 .exp-detail ul {
     margin: 0;
     padding-left: 20px;
@@ -187,7 +186,7 @@ section[id] {
     margin-bottom: 5px;
 }
 
-/* TA 경력처럼 특별한 2단 구조를 위한 스타일 */
+/* Special 2-column style for TA entry */
 .exp-detail.as-columns {
     list-style: none;
     padding-left: 0;
@@ -202,10 +201,9 @@ section[id] {
 .exp-detail.as-columns .exp-desc {
     width: 75%;
     position: relative;
-    padding-left: 15px; /* 글머리 기호 공간 확보 */
+    padding-left: 15px;
 }
 
-/* TA 항목에만 글머리 기호를 추가 */
 .exp-detail.as-columns .exp-desc::before {
     content: '•';
     position: absolute;
@@ -221,8 +219,8 @@ section[id] {
     text-align: right;
 }
 
+
 /**************** Awards ****************/
-/* 각 수상 내역 항목 */
 .award-entry {
     display: flex;
     justify-content: space-between;
@@ -230,7 +228,6 @@ section[id] {
     margin-bottom: 10px;
 }
 
-/* 연도별 그룹핑을 위한 컨테이너 */
 .year-group {
     margin-bottom: 20px;
 }
@@ -245,26 +242,22 @@ section[id] {
     padding-left: 0; 
 }
 
-/* 수상 날짜 (왼쪽 열) */
 .award-date {
     width: 15%;
     font-weight: normal;
 }
 
-/* 수상 내용 (중간 열) */
 .award-desc {
     width: 60%; 
     padding: 0 10px;
 }
 
-/* 수여 기관 (오른쪽 열) */
 .award-org {
     width: 25%;
     text-align: right; 
 }
 
 /**************** Techniques ****************/
-/* "Proficient", "Experienced" 카테고리 컨테이너 */
 .skills-category {
     margin-bottom: 30px;
 }
@@ -277,14 +270,12 @@ section[id] {
     padding-bottom: 0;
 }
 
-/* 각 기술 항목 (예: "Programming Language: ...") */
 .skill-item {
     display: flex;
     align-items: baseline;
     margin-bottom: 5px;
 }
 
-/* 기술 항목의 제목 (예: "Programming Language:") */
 .skill-item-title {
     width: 200px; 
     flex-shrink: 0;
@@ -295,14 +286,12 @@ section[id] {
     padding-right: 10px;
 }
 
-/* 기술 태그들을 감싸는 리스트 */
 .skills-list {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-/* 개별 기술 태그 */
 .skill-tag {
     background-color: #e9ecef;
     color: #495057;
@@ -328,7 +317,6 @@ section[id] {
 .education-entry li {
     margin: 0 0 1px 0;
     padding: 0;
-    white-space: nowrap;
 }
 
 .edu-basic {
@@ -351,15 +339,12 @@ footer {
     margin: auto;
 }
 
-/* 화면 너비 768px 이하일 때 적용되는 반응형 스타일 */
 @media (max-width: 768px) {
     .header-top,
     nav ul,
     section {
         width: 95%;
     }
-
-    /* 여러 단으로 구성된 레이아웃을 세로로 쌓음 */
     .about-content,
     .project,
     .education-entry,
@@ -368,8 +353,6 @@ footer {
         flex-direction: column;
         align-items: flex-start;
     }
-
-    /* 세로로 쌓일 때, 각 요소의 너비를 100%로 설정 */
     .award-date,
     .award-desc,
     .award-org,
@@ -379,11 +362,9 @@ footer {
         width: 100%;
         margin-bottom: 10px;
     }
-    
     .contact {
         gap: 10px;
     }
-    
     .contact img {
         height: 20px;
         width: 20px;
