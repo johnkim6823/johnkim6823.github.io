@@ -173,24 +173,6 @@ section[id] {
     margin-bottom: 5px;
 }
 
-.exp-detail.as-columns .exp-item {
-    display: flex;
-    margin-bottom: 5px;
-    align-items: baseline;
-}
-
-.exp-detail.as-columns .exp-desc {
-    width: 75%;
-}
-
-.exp-detail.as-columns .exp-period {
-    width: 25%;
-    font-weight: 500;
-    color: #333;
-    text-align: right;
-}
-
-
 /**************** Awards ****************/
 .award-entry {
     display: flex;
