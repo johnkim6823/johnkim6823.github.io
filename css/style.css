@@ -172,6 +172,7 @@ section[id] {
     width: 25%;
     font-weight: 500;
     color: #333;
+    text-align: right;
 }
 
 .exp-desc {
