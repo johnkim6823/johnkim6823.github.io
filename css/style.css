@@ -269,7 +269,7 @@ footer {
 }
 
 .skill-item-title {
-    width: 160px; /* 너비 축소 */
+    width: 300px; /* 너비 축소 */
     flex-shrink: 0;
     font-size: 1.0em;
     font-weight: bold;
