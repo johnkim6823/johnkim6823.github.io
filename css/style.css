@@ -137,17 +137,9 @@ section[id] {
     padding-left: 20px;
 }
 
-.award-tag {
-    display: inline-block;
-    margin-left: 8px;
-    padding: 2px 8px;
-    font-size: 0.8em;
-    font-weight: bold;
-    color: #6c757d;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 10px;
-    vertical-align: middle;
+.pub-list li a[href="#awards"] {
+    text-decoration: none;
+    margin-right: 8px;
 }
 
 /**************** Experiences ****************/
