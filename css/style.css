@@ -52,6 +52,7 @@ header h1 {
     height: 24px; 
     width: 24px; 
     vertical-align: middle;
+    filter: invert(1); /* 아이콘 색상을 반전시켜 흰색으로 만듭니다 */
 }
 
 
@@ -105,9 +106,9 @@ section[id] {
 
 /* Profile picture size */
 .profile-pic {
-    width: 413px;
-    height: 552px;
-    /* object-fit은 더 이상 필요 없으므로 제거 */
+    width: 200px;
+    height: 200px;
+    object-fit: cover; /* 비율에 맞게 이미지를 채우도록 수정 */
     margin-bottom: 0;
     margin-right: 20px;
 }
