@@ -193,8 +193,7 @@ footer {
     .about-content,
     .project,
     .education-entry,
-    .award-entry,
-    .skill-item {
+    .award-entry {
         flex-direction: column;
         align-items: flex-start;
     }
@@ -260,14 +259,14 @@ footer {
 .skills-category h3 {
     margin-bottom: 20px;
     font-size: 1.2em;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 8px;
+    /* border-bottom 속성 제거 */
+    padding-bottom: 0;
 }
 
 .skill-item {
     display: flex;
     align-items: baseline;
-    margin-bottom: 15px;
+    margin-bottom: 5px; /* 내부 아이템 간의 간격 축소 */
 }
 
 .skill-item-title {
