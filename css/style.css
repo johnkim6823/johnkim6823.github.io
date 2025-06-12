@@ -137,6 +137,19 @@ section[id] {
     padding-left: 20px;
 }
 
+.award-tag {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    vertical-align: middle;
+}
+
 /**************** Experiences ****************/
 .experience-entry {
     display: flex;
@@ -189,10 +202,9 @@ section[id] {
 .exp-detail.as-columns .exp-desc {
     width: 75%;
     position: relative;
-    padding-left: 15px; /* 글머리 기호를 위한 공간 확보 */
+    padding-left: 15px;
 }
 
-/* TA 항목에만 글머리 기호를 추가합니다. */
 .exp-detail.as-columns .exp-desc::before {
     content: '•';
     position: absolute;
