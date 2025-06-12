@@ -158,16 +158,26 @@ section[id] {
     margin: 0;
 }
 
-.exp-detail ul {
-    margin: 0;
-    padding-left: 20px;
+.exp-detail {
+    width: 100%;
 }
 
-.exp-detail li {
-    margin: 0 0 1px 0;
-    padding: 0;
+.exp-item {
+    display: flex;
+    margin-bottom: 5px;
+    align-items: baseline;
 }
 
+.exp-period {
+    width: 25%;
+    font-weight: 500;
+    color: #333;
+    text-align: right;
+}
+
+.exp-desc {
+    width: 75%;
+}
 
 /**************** Awards ****************/
 .award-entry {
