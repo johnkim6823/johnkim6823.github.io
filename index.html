@@ -5,6 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Myeongjun Kim | Cloud </title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        #downloadPdf {
+            margin-left: 20px;
+            padding: 6px 12px;
+            background: #444;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        #downloadPdf:hover {
+            background: #555;
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+
+        #downloadPdf:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -441,12 +466,81 @@
     </section>
 
     <footer>
-        <p>&copy; Myeongjun Kim - johnkim682@gmail.com</p>
+        <p>
+            &copy; Myeongjun Kim - johnkim682@gmail.com
+            <button id="downloadPdf" style="margin-left: 20px; padding: 5px 10px; background: #333; color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 12px;">
+                📄 Download PDF
+            </button>
+        </p>
     </footer>
 
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel" src="js/main.js"></script>
+
+    <!-- jsPDF 라이브러리 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script>
+    document.getElementById('downloadPdf').addEventListener('click', async function() {
+        const button = this;
+        const originalText = button.textContent;
+        
+        // 버튼 텍스트 변경
+        button.textContent = 'Generating PDF...';
+        button.disabled = true;
+        
+        try {
+            // body 전체를 캔버스로 변환
+            const canvas = await html2canvas(document.body, {
+                scale: 2, // 고해상도
+                useCORS: true,
+                logging: false,
+                windowWidth: document.body.scrollWidth,
+                windowHeight: document.body.scrollHeight
+            });
+            
+            // PDF 생성
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF({
+                orientation: 'portrait',
+                unit: 'mm',
+                format: 'a4'
+            });
+            
+            // 이미지 크기 계산
+            const imgWidth = 210; // A4 width in mm
+            const pageHeight = 297; // A4 height in mm
+            const imgHeight = (canvas.height * imgWidth) / canvas.width;
+            let heightLeft = imgHeight;
+            let position = 0;
+            
+            // 첫 페이지 추가
+            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+            
+            // 여러 페이지가 필요한 경우
+            while (heightLeft >= 0) {
+                position = heightLeft - imgHeight;
+                pdf.addPage();
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+            }
+            
+            // PDF 다운로드
+            pdf.save('Myeongjun_Kim_CV.pdf');
+            
+        } catch (error) {
+            console.error('PDF 생성 중 오류:', error);
+            alert('PDF 생성 중 오류가 발생했습니다.');
+        } finally {
+            // 버튼 원래대로 복구
+            button.textContent = originalText;
+            button.disabled = false;
+        }
+    });
+    </script>
 </body>
 </html>
