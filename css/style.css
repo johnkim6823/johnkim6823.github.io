@@ -120,7 +120,7 @@ a.sub-text:hover {
 /**************** About Me ****************/
 .about-content {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 20px;
 }
 
