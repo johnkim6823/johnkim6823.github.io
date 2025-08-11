@@ -494,7 +494,7 @@
         
         try {
             // body 전체를 캔버스로 변환
-            const canvas = await html2canvas(document.body, {
+            const canvas = await html2canvas(document.querySelector('#about'), {
                 scale: 2, // 고해상도
                 useCORS: true,
                 logging: false,
