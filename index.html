@@ -29,12 +29,39 @@
             opacity: 0.5;
             cursor: not-allowed;
         }
+
+        /* PDF 생성 모드용 스타일 */
+        body.pdf-export-mode nav {
+            display: none !important;
+        }
+
+        body.pdf-export-mode footer {
+            display: none !important;
+        }
+
+        body.pdf-export-mode .header-top {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+        }
+
+        body.pdf-export-mode .pdf-email-info {
+            display: block !important;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .pdf-email-info {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="header-top">
-            <h1>Myeongjun Kim</h1> <div class="contact">
+            <h1>Myeongjun Kim</h1>
+            <div class="pdf-email-info">Myeongjun Kim - johnkim682@gmail.com</div>
+            <div class="contact">
                 <a href="mailto:johnkim682@gmail.com" title="Email">
                     <img src="images/icons/mail.svg" alt="Email">
                 </a>
@@ -497,8 +524,11 @@
             // 페이지 맨 위로 스크롤
             window.scrollTo(0, 0);
 
-            // PDF 버튼 숨기기
-            button.style.display = 'none';
+            // PDF 모드 활성화 (nav, footer 숨김, 이메일 표시)
+            document.body.classList.add('pdf-export-mode');
+
+            // 약간의 딜레이를 주어 스타일이 적용되도록 함
+            await new Promise(resolve => setTimeout(resolve, 100));
 
             // body 전체를 캔버스로 변환
             const canvas = await html2canvas(document.body, {
@@ -512,8 +542,8 @@
                 height: document.body.scrollHeight
             });
 
-            // PDF 버튼 다시 보이기
-            button.style.display = '';
+            // PDF 모드 비활성화
+            document.body.classList.remove('pdf-export-mode');
 
             // PDF 생성
             const imgData = canvas.toDataURL('image/png');
@@ -521,32 +551,26 @@
             const pdf = new jsPDF({
                 orientation: 'portrait',
                 unit: 'mm',
-                format: 'a4'
+                format: 'a4',
+                compress: true
             });
 
-            // A4 크기 (mm)
+            // A4 크기 (mm) - 여백 없음
             const pageWidth = 210;
             const pageHeight = 297;
-            const margin = 10; // 여백
-            const imgWidth = pageWidth - (margin * 2);
 
-            // 캔버스 비율에 맞춰 이미지 높이 계산
-            const imgHeight = (canvas.height * imgWidth) / canvas.width;
-            const pageContentHeight = pageHeight - (margin * 2);
+            // 이미지를 A4 한 페이지에 맞춤 (여백 없음)
+            const imgWidth = pageWidth;
+            const imgHeight = (canvas.height * pageWidth) / canvas.width;
 
-            let heightLeft = imgHeight;
-            let position = margin;
-
-            // 첫 페이지 추가
-            pdf.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
-            heightLeft -= pageContentHeight;
-
-            // 여러 페이지가 필요한 경우
-            while (heightLeft > 0) {
-                pdf.addPage();
-                position = -(imgHeight - heightLeft) + margin;
-                pdf.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
-                heightLeft -= pageContentHeight;
+            // 한 페이지에 맞추기 위해 높이가 A4를 초과하면 스케일 조정
+            if (imgHeight > pageHeight) {
+                const scale = pageHeight / imgHeight;
+                const scaledWidth = imgWidth * scale;
+                const scaledHeight = pageHeight;
+                pdf.addImage(imgData, 'PNG', 0, 0, scaledWidth, scaledHeight);
+            } else {
+                pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
             }
 
             // PDF 다운로드
@@ -555,9 +579,10 @@
         } catch (error) {
             console.error('PDF 생성 중 오류:', error);
             alert('PDF 생성 중 오류가 발생했습니다.');
+            // 에러 발생 시에도 PDF 모드 비활성화
+            document.body.classList.remove('pdf-export-mode');
         } finally {
             // 버튼 원래대로 복구
-            button.style.display = '';
             button.textContent = originalText;
             button.disabled = false;
         }
