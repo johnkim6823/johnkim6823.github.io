@@ -5,63 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Myeongjun Kim | Cloud </title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        #downloadPdf {
-            margin-left: 20px;
-            padding: 6px 12px;
-            background: #444;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 13px;
-            transition: all 0.3s ease;
-            opacity: 0.7;
-        }
-
-        #downloadPdf:hover {
-            background: #555;
-            opacity: 1;
-            transform: translateY(-1px);
-        }
-
-        #downloadPdf:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        /* PDF 생성 모드용 스타일 */
-        body.pdf-export-mode nav {
-            display: none !important;
-        }
-
-        body.pdf-export-mode footer {
-            display: none !important;
-        }
-
-        body.pdf-export-mode .header-top {
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-        }
-
-        body.pdf-export-mode .pdf-email-info {
-            display: block !important;
-            font-size: 14px;
-            color: #666;
-        }
-
-        .pdf-email-info {
-            display: none;
-        }
-    </style>
 </head>
 <body>
     <header>
         <div class="header-top">
-            <h1>Myeongjun Kim</h1>
-            <div class="pdf-email-info">Myeongjun Kim - johnkim682@gmail.com</div>
-            <div class="contact">
+            <h1>Myeongjun Kim</h1> <div class="contact">
                 <a href="mailto:johnkim682@gmail.com" title="Email">
                     <img src="images/icons/mail.svg" alt="Email">
                 </a>
@@ -497,9 +445,6 @@
     <footer>
         <p>
             &copy; Myeongjun Kim - johnkim682@gmail.com
-            <button id="downloadPdf" style="margin-left: 20px; padding: 5px 10px; background: #333; color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 12px;">
-                📄 Download PDF
-            </button>
         </p>
     </footer>
 
@@ -507,99 +452,5 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel" src="js/main.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
-    <script>
-    document.getElementById('downloadPdf').addEventListener('click', async function() {
-        const button = this;
-        const originalText = button.textContent;
-
-        // 버튼 텍스트 변경
-        button.textContent = 'Generating PDF...';
-        button.disabled = true;
-
-        try {
-            // 페이지 맨 위로 스크롤
-            window.scrollTo(0, 0);
-
-            // PDF 모드 활성화 (nav, footer 숨김, 이메일 표시)
-            document.body.classList.add('pdf-export-mode');
-
-            // 약간의 딜레이를 주어 스타일이 적용되도록 함
-            await new Promise(resolve => setTimeout(resolve, 100));
-
-            // body 전체를 캔버스로 변환
-            const canvas = await html2canvas(document.body, {
-                scale: 2,
-                useCORS: true,
-                allowTaint: true,
-                logging: false,
-                scrollY: -window.scrollY,
-                scrollX: -window.scrollX,
-                width: document.body.scrollWidth,
-                height: document.body.scrollHeight
-            });
-
-            // PDF 모드 비활성화
-            document.body.classList.remove('pdf-export-mode');
-
-            // PDF 생성
-            const imgData = canvas.toDataURL('image/png');
-            const { jsPDF } = window.jspdf;
-            const pdf = new jsPDF({
-                orientation: 'portrait',
-                unit: 'mm',
-                format: 'a4',
-                compress: true
-            });
-
-            // A4 크기 (mm) - 여백 추가
-            const pageWidth = 210;
-            const pageHeight = 297;
-            const marginLeft = 10;
-            const marginRight = 10;
-            const marginTop = 10;
-            const marginBottom = 15; // 아래 여백을 조금 더 줌
-
-            // 콘텐츠 영역 계산
-            const contentWidth = pageWidth - marginLeft - marginRight;
-            const contentHeight = pageHeight - marginTop - marginBottom;
-
-            // 이미지 크기 계산
-            const imgWidth = contentWidth;
-            const imgHeight = (canvas.height * contentWidth) / canvas.width;
-
-            let heightLeft = imgHeight;
-            let position = marginTop;
-
-            // 첫 페이지 추가
-            pdf.addImage(imgData, 'PNG', marginLeft, position, imgWidth, imgHeight);
-            heightLeft -= contentHeight;
-
-            // 여러 페이지가 필요한 경우
-            while (heightLeft > 0) {
-                pdf.addPage();
-                position = -(imgHeight - heightLeft) + marginTop;
-                pdf.addImage(imgData, 'PNG', marginLeft, position, imgWidth, imgHeight);
-                heightLeft -= contentHeight;
-            }
-
-            // PDF 다운로드
-            pdf.save('Myeongjun_Kim_CV.pdf');
-
-        } catch (error) {
-            console.error('PDF 생성 중 오류:', error);
-            alert('PDF 생성 중 오류가 발생했습니다.');
-            // 에러 발생 시에도 PDF 모드 비활성화
-            document.body.classList.remove('pdf-export-mode');
-        } finally {
-            // 버튼 원래대로 복구
-            button.textContent = originalText;
-            button.disabled = false;
-        }
-    });
-    </script>
 </body>
 </html>
